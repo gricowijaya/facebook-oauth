@@ -148,6 +148,11 @@ concat-map@0.0.1:
   resolved "https://registry.yarnpkg.com/concat-map/-/concat-map-0.0.1.tgz#d8a96bd77fd68df7793a73036a3ba0d5405d477b"
   integrity sha512-/Srv4dswyQNBfohGpz9o6Yb3Gz3SrUDqBH5rTuhGR7ahtlbYKnVxw2bCFMRljaA7EXHaXZ8wsHdodFvbkhKmqg==
 
+connect-flash@0.1.x:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/connect-flash/-/connect-flash-0.1.1.tgz#d8630f26d95a7f851f9956b1e8cc6732f3b6aa30"
+  integrity sha512-2rcfELQt/ZMP+SM/pG8PyhJRaLKp+6Hk2IUBNkEit09X+vwn3QsAL3ZbYtxUn7NVPzbMTSLRDhqe0B/eh30RYA==
+
 content-disposition@0.5.4:
   version "0.5.4"
   resolved "https://registry.yarnpkg.com/content-disposition/-/content-disposition-0.5.4.tgz#8b82b4efac82512a02bb0b1dcec9d2c5e8eb5bfe"
@@ -230,6 +235,13 @@ etag@~1.8.1:
   version "1.8.1"
   resolved "https://registry.yarnpkg.com/etag/-/etag-1.8.1.tgz#41ae2eeb65efa62268aebfea83ac7d79299b0887"
   integrity sha512-aIL5Fx7mawVa300al2BnEE4iNvo1qETxLrPI/o05L7z6go7fCw1J6EQmbK4FmJ2AS7kgVF/KEZWufBfdClMcPg==
+
+express-flash@^0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/express-flash/-/express-flash-0.0.2.tgz#23d1a8bcf3f90d707928e489f96869ecad0acda2"
+  integrity sha512-QVUR0ZZRCaa8+iPHoUQaQJrQWcQuK/Q+19M7IUIdIEtvwhrA/ifHT7y1CVJI41YfGiOQnbGtn3uvd2vOdgu58A==
+  dependencies:
+    connect-flash "0.1.x"
 
 express-session@^1.17.3:
   version "1.17.3"
