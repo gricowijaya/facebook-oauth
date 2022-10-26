@@ -1,21 +1,42 @@
 const router = require('express').Router();
-const restrict = require('../middlewares/restrict');
-const auth = require('../controllers/authController');
+const passport = require('passport')
+const auth = require('../controllers/auth')
 
 // iNDEX
 // add the middleware so people who authorize to see index page just the authenticated userj
-router.get('/', restrict, (req, res) => res.render('index'));
+router.get('/', (req, res) => res.render('pages/index.ejs'));
+
+// PROFILES
+router.get('/profile', auth.isLoggedIn, (req, res) => {
+    res.render('pages/profile.ejs', { 
+        user: req.user
+    });
+});
 
 
-// REGISTER
-router.get('/auth/register', (req, res) => res.render('register')); // render page
-router.post('/auth/register', auth.register); // method
+// ERROR
+router.get('/error', auth.isLoggedIn, (req, res) => {
+    res.render('pages/error.ejs');
+});
+
 
 // LOGIN WITH FACEBOOK
-router.get('/auth/login/facebook', (req, res) => res.render('login')); // render page
-router.post('/auth/login/facebook', auth.login); // method 
+router.get('/auth/facebook',
+    passport.authenticate('facebook', {
+        scope:['public_profile', 'email']
+    })
+)
+router.get('/auth/facebook/callback', 
+    passport.authenticate('facebook', { 
+        successRedirect: '/profile',
+        failureRedirect: '/error',
+})); // method 
 
-// WHOAMI
-router.get('/auth/whoami', restrict, auth.whoami)
+// LOGOUT
+router.get('/logout', (req, res) => {
+    res.logout();
+    res.redirect('/');
+})
 
-module.exports = router
+
+module.exports = router;
