@@ -26,13 +26,8 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // to create the session
-passport.serializeUser(function (user, cb) {
-    cb(null, user)
-});
-
-passport.deserializeUser(function (obj, cb) {
-    cb(null, obj)
-});
+passport.serializeUser( (user, cb) => { cb(null, user); } )
+passport.deserializeUser( (obj, cb) => { cb(null, obj); } )
 
 
 // facebook oauth strategy
